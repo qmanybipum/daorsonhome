@@ -32,7 +32,8 @@
 
 1. 이 저장소를 GitHub에 푸시하고 Render에서 **New Web Service → Docker**로 연결합니다.
 2. 환경 변수 `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`를 설정합니다. 앱은 Render의 `PORT` 환경 변수에 바인딩합니다.
-3. Render에서 배포가 완료되면 `https://<서비스 주소>/api/health`를 확인합니다.
-4. Render의 Custom Domains 설정에서 `daorson.co.kr`을 추가한 다음 안내되는 DNS 레코드를 도메인 DNS 관리 화면에 등록합니다. DNS 전파 후 HTTPS 상태를 확인합니다.
+3. 비공개 접속을 위해 Render 환경 변수 `SITE_ACCESS_USERNAME`(생략 시 `daorson`)과 강력한 `SITE_ACCESS_PASSWORD`를 설정합니다. 운영 환경에서는 두 값이 설정된 경우에만 사이트와 API가 Basic 인증을 허용하며, 비밀번호가 없으면 모든 요청을 차단합니다. 비밀번호를 저장소에 커밋하지 마세요.
+4. Render에서 배포가 완료되면 인증 정보를 포함해 `https://<서비스 주소>/api/health`를 확인합니다.
+5. Render의 Custom Domains 설정에서 `daorson.co.kr`을 추가한 다음 안내되는 DNS 레코드를 도메인 DNS 관리 화면에 등록합니다. DNS 전파 후 HTTPS 상태를 확인합니다.
 
 도메인 소유권, DNS 공급자 및 Render/Supabase 계정 접근 권한이 없어 실제 도메인 연결과 배포는 계정에서 별도로 완료해야 합니다.

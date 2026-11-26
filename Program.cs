@@ -1,4 +1,6 @@
 using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json;
 using WebApplication1.Models;
 using WebApplication1.Services;
@@ -28,6 +30,39 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+if (!app.Environment.IsDevelopment())
+{
+    var accessUsername = builder.Configuration["SITE_ACCESS_USERNAME"] ?? "daorson";
+    var accessPassword = builder.Configuration["SITE_ACCESS_PASSWORD"];
+
+    if (string.IsNullOrWhiteSpace(accessPassword))
+    {
+        app.Logger.LogError("SITE_ACCESS_PASSWORD is missing; public requests will be blocked.");
+    }
+
+    app.Use(async (context, next) =>
+    {
+        if (string.IsNullOrWhiteSpace(accessPassword))
+        {
+            context.Response.StatusCode = StatusCodes.Status503ServiceUnavailable;
+            await context.Response.WriteAsync("Private site access is not configured.");
+            return;
+        }
+
+        if (!HasValidCredentials(context.Request.Headers.Authorization, accessUsername, accessPassword))
+        {
+            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+            context.Response.Headers.WWWAuthenticate = "Basic realm=\"Daebak Supplies\", charset=\"UTF-8\"";
+            context.Response.Headers.CacheControl = "no-store";
+            await context.Response.WriteAsync("Authentication is required.");
+            return;
+        }
+
+        await next();
+    });
+}
+
 app.UseAuthorization();
 app.MapStaticAssets();
 
@@ -100,3 +135,49 @@ app.MapControllerRoute(
     .WithStaticAssets();
 
 app.Run();
+
+static bool HasValidCredentials(string? authorizationHeader, string expectedUsername, string expectedPassword)
+{
+    if (string.IsNullOrEmpty(authorizationHeader) || authorizationHeader.Length > 4096 ||
+        !authorizationHeader.StartsWith("Basic ", StringComparison.OrdinalIgnoreCase))
+    {
+        return false;
+    }
+
+    byte[] credentialBytes;
+    try
+    {
+        credentialBytes = Convert.FromBase64String(authorizationHeader[6..]);
+    }
+    catch (FormatException)
+    {
+        return false;
+    }
+
+    string credentials;
+    try
+    {
+        credentials = new UTF8Encoding(false, true).GetString(credentialBytes);
+    }
+    catch (DecoderFallbackException)
+    {
+        return false;
+    }
+
+    var separator = credentials.IndexOf(':');
+    if (separator < 0)
+    {
+        return false;
+    }
+
+    var suppliedUsername = Encoding.UTF8.GetBytes(credentials[..separator]);
+    var suppliedPassword = Encoding.UTF8.GetBytes(credentials[(separator + 1)..]);
+    var usernameMatches = CryptographicOperations.FixedTimeEquals(
+        suppliedUsername,
+        Encoding.UTF8.GetBytes(expectedUsername));
+    var passwordMatches = CryptographicOperations.FixedTimeEquals(
+        suppliedPassword,
+        Encoding.UTF8.GetBytes(expectedPassword));
+
+    return usernameMatches && passwordMatches;
+}
