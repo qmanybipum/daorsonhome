@@ -1,49 +1,90 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApplication1</title>
-    <script type="importmap"></script>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <meta name="theme-color" content="#f8f6f1" />
+    <meta name="description" content="호텔 객실용품과 어메니티를 한곳에서. 대박비품이 숙박 공간에 필요한 제품을 정성껏 제안합니다." />
+    <link rel="canonical" href="https://daorson.co.kr/" />
+    <title>@ViewData["Title"] | 대박비품 호텔 납품 전문몰</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WebApplication1.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WebApplication1</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+    <header class="site-header">
+        <div class="announcement-bar">
+            <p>보이지 않는 곳까지 정성스럽게, 호텔의 하루를 더 아름답게</p>
+            <span class="announcement-mark" aria-hidden="true">✦</span>
+        </div>
+        <div class="utility-bar">
+            <div class="header-inner utility-inner">
+                <span class="utility-note">호텔·숙박업소 전문 납품몰</span>
+                <div class="utility-links">
+                    <a href="#about">대박비품 소개</a>
+                    <a href="#categories">상품 카테고리</a>
+                    <a href="https://xn--h50bz4w22pujaj7d.com/" target="_blank" rel="noopener noreferrer">기존 쇼핑몰 방문 ↗</a>
+                    <a href="#contact">고객센터</a>
+                    <a href="#contact">납품 문의</a>
+                </div>
+            </div>
+        </div>
+        <div class="brand-row">
+            <div class="header-inner brand-inner">
+                <a class="promo-tile" href="#room-amenities" aria-label="호텔 객실 어메니티 상품 보기">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=520&q=80" alt="호텔 객실용 어메니티 제품" />
+                    <span>머무는 순간을 위한<br /><strong>호텔 어메니티</strong></span>
+                </a>
+                <a class="brand-mark" asp-controller="Home" asp-action="Index" aria-label="대박비품 홈">
+                    <span class="brand-symbol" aria-hidden="true">대</span>
+                    <span class="brand-copy">
+                        <small class="brand-tagline">호텔의 품격을 완성하는</small>
+                        <strong>대박비품</strong>
+                        <small class="brand-english">DAEBAK SUPPLIES · HOTEL GOODS</small>
+                    </span>
+                </a>
+                <a class="header-contact" href="#contact"><span aria-hidden="true">✳</span> 납품 상담 <b>→</b></a>
+            </div>
+        </div>
+        <nav class="category-nav" aria-label="주요 메뉴">
+            <div class="header-inner nav-inner">
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="category-menu" aria-label="전체 메뉴 열기">
+                    <span></span><span></span><span></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
+                <div class="category-menu" id="category-menu">
+                    <a href="#categories">원텍냉장고 특가판매</a>
+                    <a href="#room-amenities">객실 어메니티</a>
+                    <a href="#guest-supplies">객실 비품</a>
+                    <a href="#room-linen">린넨·침구</a>
+                    <a href="#cleaning">청소/세제</a>
+                    <a href="#categories">디지털/가전</a>
+                    <a href="#categories">사무/생활</a>
+                    <a href="#categories">커피·생수</a>
+                    <a href="#categories">캠핑/바베큐</a>
+                    <a href="#contact">호텔용구</a>
+                    <a href="#contact">러비메이드</a>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <main role="main">
+        @RenderBody()
+    </main>
+
+    <footer class="site-footer" id="contact">
+        <div class="header-inner footer-inner">
+            <a class="footer-brand" asp-controller="Home" asp-action="Index">대박비품</a>
+            <div class="footer-copy">
+                <p>호텔·숙박업소에 필요한 제품을 한 곳에서 편리하게 만나보세요.</p>
+                <p>납품 및 상품 문의는 편하게 연락해 주세요.</p>
+                <p><a href="https://xn--h50bz4w22pujaj7d.com/" target="_blank" rel="noopener noreferrer">기존 Cafe24 쇼핑몰 방문 ↗</a></p>
+            </div>
+            <a class="footer-top" href="#top" aria-label="페이지 맨 위로">↑</a>
         </div>
+        <div class="footer-bottom">© @DateTime.Now.Year 대박비품. All rights reserved.</div>
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -1,6 +1,6 @@
-# Daorson 쇼핑몰 백엔드
+# daorsonhome 쇼핑몰 백엔드
 
-ASP.NET Core MVC 백엔드입니다. Supabase의 Postgres 데이터베이스를 서버에서 호출하며, 비밀 키는 브라우저에 전달하지 않습니다.
+대박비품 쇼핑몰을 위한 ASP.NET Core MVC 백엔드입니다. Supabase의 Postgres 데이터베이스를 서버에서 호출하며, 비밀 키는 브라우저에 전달하지 않습니다. 대표 도메인은 `https://daorson.co.kr`입니다.
 
 ## API
 

@@ -1,8 +1,133 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "호텔 비품·어메니티 납품";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<section class="hero" id="top" aria-label="대박비품 호텔 납품 안내">
+    <div class="hero-content">
+        <p class="eyebrow">DAEBAK HOTEL SUPPLIES</p>
+        <h1>머무는 순간을<br /><em>더 포근하게</em></h1>
+        <p class="hero-description">호텔과 숙박 공간을 위한 객실용품을 한곳에서.<br />매일의 휴식에 어울리는 품질과 따뜻한 서비스를 제안합니다.</p>
+        <div class="hero-actions">
+            <a class="button button-dark" href="#categories">상품 둘러보기 <span aria-hidden="true">→</span></a>
+            <a class="button button-outline" href="https://xn--h50bz4w22pujaj7d.com/" target="_blank" rel="noopener noreferrer">기존 쇼핑몰 주문하기 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="hero-note"><span aria-hidden="true">✳</span> 숙박업소 전문 상담 · 편리한 납품 안내</div>
+    </div>
+    <div class="hero-visual">
+        <img class="hero-image"
+             src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=1800&q=85"
+             alt="아침 햇살이 부드럽게 비치는 정돈된 호텔 침실"
+             fetchpriority="high" />
+        <div class="hero-image-caption"><span>ROOM FOR REST</span><strong>편안한 하루의 시작</strong></div>
+    </div>
+</section>
+
+<section class="service-points" aria-label="대박비품 서비스 안내">
+    <div class="service-point"><span class="service-icon" aria-hidden="true">01</span><div><strong>숙박업소 맞춤 제안</strong><small>공간과 운영에 맞는 상품을 안내해 드립니다</small></div></div>
+    <div class="service-point"><span class="service-icon" aria-hidden="true">02</span><div><strong>한곳에서 편리하게</strong><small>객실 비품부터 침구와 어메니티까지</small></div></div>
+    <div class="service-point"><span class="service-icon" aria-hidden="true">03</span><div><strong>친절한 납품 상담</strong><small>품목과 수량에 맞춰 편하게 문의하세요</small></div></div>
+</section>
+
+<section class="intro-section" id="about">
+    <p class="eyebrow">FOR EVERY HOSPITALITY SPACE</p>
+    <h2>좋은 공간은 작은 디테일에서 시작됩니다</h2>
+    <p>고객이 편안하게 머무는 공간을 위해<br class="desktop-break" /> 대박비품이 필요한 제품과 세심한 납품 서비스를 함께 준비합니다.</p>
+</section>
+
+<section class="category-section" id="categories">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">SHOP BY CATEGORY</p>
+            <h2>공간에 필요한 제품을 찾아보세요</h2>
+        </div>
+        <span class="section-note">호텔과 숙박 공간을 위한 큐레이션</span>
+    </div>
+    <div class="category-grid">
+        <article class="category-item">
+            <button class="category-card" id="category-amenities" type="button" aria-expanded="false" aria-controls="subcategories-amenities">
+                <span class="category-number">01 / CARE</span>
+                <span class="category-symbol" aria-hidden="true">✳</span>
+                <span class="category-label"><strong>객실 어메니티</strong><small>ROOM AMENITIES</small></span>
+                <span class="category-arrow" aria-hidden="true">＋</span>
+            </button>
+            <div class="subcategory-panel" id="subcategories-amenities" hidden>
+                <a href="#contact">샴푸·린스</a><a href="#contact">바디워시·비누</a><a href="#contact">치약·칫솔</a><a href="#contact">화장품·어메니티 세트</a>
+            </div>
+        </article>
+        <article class="category-item">
+            <button class="category-card" id="category-room-goods" type="button" aria-expanded="false" aria-controls="subcategories-room-goods">
+                <span class="category-number">02 / ROOM</span>
+                <span class="category-symbol" aria-hidden="true">⌂</span>
+                <span class="category-label"><strong>객실 비품</strong><small>GUEST ROOM GOODS</small></span>
+                <span class="category-arrow" aria-hidden="true">＋</span>
+            </button>
+            <div class="subcategory-panel" id="subcategories-room-goods" hidden>
+                <a href="#contact">객실 슬리퍼</a><a href="#contact">옷걸이·행거</a><a href="#contact">드라이기·전기포트</a><a href="#contact">휴지통·객실 소품</a>
+            </div>
+        </article>
+        <article class="category-item">
+            <button class="category-card" id="category-linen" type="button" aria-expanded="false" aria-controls="subcategories-linen">
+                <span class="category-number">03 / COMFORT</span>
+                <span class="category-symbol" aria-hidden="true">▱</span>
+                <span class="category-label"><strong>침구·린넨</strong><small>BEDDING & LINEN</small></span>
+                <span class="category-arrow" aria-hidden="true">＋</span>
+            </button>
+            <div class="subcategory-panel" id="subcategories-linen" hidden>
+                <a href="#contact">침대시트·커버</a><a href="#contact">이불·베개</a><a href="#contact">타월·목욕가운</a><a href="#contact">린넨 소모품</a>
+            </div>
+        </article>
+        <article class="category-item">
+            <button class="category-card" id="category-cleaning" type="button" aria-expanded="false" aria-controls="subcategories-cleaning">
+                <span class="category-number">04 / CLEAN</span>
+                <span class="category-symbol" aria-hidden="true">❋</span>
+                <span class="category-label"><strong>청소·세제</strong><small>CLEANING & CARE</small></span>
+                <span class="category-arrow" aria-hidden="true">＋</span>
+            </button>
+            <div class="subcategory-panel" id="subcategories-cleaning" hidden>
+                <a href="#contact">청소도구·카트</a><a href="#contact">세탁·주방 세제</a><a href="#contact">소독·위생용품</a><a href="#contact">쓰레기봉투·소모품</a>
+            </div>
+        </article>
+        <article class="category-item">
+            <button class="category-card" id="category-appliances" type="button" aria-expanded="false" aria-controls="subcategories-appliances">
+                <span class="category-number">05 / LIVING</span>
+                <span class="category-symbol" aria-hidden="true">◉</span>
+                <span class="category-label"><strong>디지털·가전</strong><small>DIGITAL & APPLIANCES</small></span>
+                <span class="category-arrow" aria-hidden="true">＋</span>
+            </button>
+            <div class="subcategory-panel" id="subcategories-appliances" hidden>
+                <a href="#contact">원텍 냉장고</a><a href="#contact">TV·리모컨</a><a href="#contact">전기포트·가전</a><a href="#contact">조명·디지털 기기</a>
+            </div>
+        </article>
+        <article class="category-item">
+            <button class="category-card" id="category-refreshments" type="button" aria-expanded="false" aria-controls="subcategories-refreshments">
+                <span class="category-number">06 / REFRESH</span>
+                <span class="category-symbol" aria-hidden="true">◌</span>
+                <span class="category-label"><strong>커피·생수</strong><small>COFFEE & WATER</small></span>
+                <span class="category-arrow" aria-hidden="true">＋</span>
+            </button>
+            <div class="subcategory-panel" id="subcategories-refreshments" hidden>
+                <a href="#contact">커피·티백</a><a href="#contact">생수·음료</a><a href="#contact">컵·티 용품</a><a href="#contact">객실 미니바 용품</a>
+            </div>
+        </article>
+        <article class="category-item">
+            <button class="category-card" id="category-hotel-tools" type="button" aria-expanded="false" aria-controls="subcategories-hotel-tools">
+                <span class="category-number">07 / HOSPITALITY</span>
+                <span class="category-symbol" aria-hidden="true">◇</span>
+                <span class="category-label"><strong>호텔용구·레저</strong><small>HOTEL TOOLS & LEISURE</small></span>
+                <span class="category-arrow" aria-hidden="true">＋</span>
+            </button>
+            <div class="subcategory-panel" id="subcategories-hotel-tools" hidden>
+                <a href="#contact">호텔 운영용품</a><a href="#contact">러비메이드 청소용품</a><a href="#contact">캠핑·바베큐 용품</a><a href="#contact">사무·생활용품</a>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="supply-banner" id="cleaning">
+    <div>
+        <p class="eyebrow">A PARTNER FOR YOUR STAY</p>
+        <h2>필요한 비품, 함께 준비해 드릴게요</h2>
+        <p>필요한 품목과 수량을 알려주시면 납품 상담을 도와드립니다.</p>
+    </div>
+    <a class="button button-light" href="#contact">납품 문의하기 <span aria-hidden="true">→</span></a>
+</section>
